@@ -24,7 +24,7 @@ function HeroSection() {
         <Stack spacing={4}>
           <Box sx={{ maxWidth: 820 }}>
             <Typography variant="overline" sx={{ color: "secondary.main", letterSpacing: 2 }}>
-              Internship submission
+              Authentic Home-Cooked Food
             </Typography>
             <Typography
               variant="h2"
@@ -34,7 +34,7 @@ function HeroSection() {
                 lineHeight: 1.02,
               }}
             >
-              Clean MUI UI that stays responsive without stuffing everything into one file.
+              Ghar Ka Khana - Taste of Home, Delivered to Your Door
             </Typography>
             <Typography
               sx={{
@@ -44,15 +44,16 @@ function HeroSection() {
                 color: "text.secondary",
               }}
             >
-              This starter shows a practical React folder structure, reusable section
-              components, and a polished layout that works from mobile to desktop.
+              Experience authentic home-cooked meals prepared with love by local home cooks.
+              Fresh ingredients, traditional recipes, and the warmth of homemade food delivered
+              right to your table.
             </Typography>
             <Stack direction={{ xs: "column", sm: "row" }} spacing={2} sx={{ mt: 3 }}>
               <Button variant="contained" size="large">
-                View structure
+                Order Now
               </Button>
               <Button variant="outlined" size="large">
-                Inspect sections
+                Browse Meals
               </Button>
             </Stack>
           </Box>
@@ -64,9 +65,9 @@ function HeroSection() {
               gridTemplateColumns: { xs: "1fr", md: "repeat(3, minmax(0, 1fr))" },
             }}
           >
-            <StatCard value="5" label="Reusable sections" />
-            <StatCard value="100%" label="Responsive layout" />
-            <StatCard value="MUI" label="Theme-driven design" />
+            <StatCard value="500+" label="Home Cooks" />
+            <StatCard value="2000+" label="Meals Delivered" />
+            <StatCard value="4.9★" label="Customer Rating" />
           </Box>
         </Stack>
       </Container>

@@ -4,22 +4,22 @@ import SectionHeading from "../components/SectionHeading"
 
 const features = [
   {
+    icon: "👩‍🍳",
+    title: "Authentic Recipes",
+    description:
+      "Meals prepared by local home cooks using traditional recipes passed down through generations, ensuring genuine homemade taste.",
+  },
+  {
     icon: "⚡",
-    title: "Fast structure",
+    title: "Fresh & Fast Delivery",
     description:
-      "Each visible part of the UI lives in a dedicated component so the app stays easy to read and extend.",
+      "Meals cooked fresh to order and delivered hot within 30 minutes. No frozen, no preservatives, just pure homemade goodness.",
   },
   {
-    icon: "📱",
-    title: "Responsive by default",
+    icon: "💚",
+    title: "Support Local",
     description:
-      "The hero, cards, and navigation all collapse cleanly on smaller screens without extra layout hacks.",
-  },
-  {
-    icon: "🎨",
-    title: "Theme consistency",
-    description:
-      "A single MUI theme controls colors, type, spacing, and button styling across the whole page.",
+      "Every order directly supports local home cooks and their families, building a community of quality food producers.",
   },
 ]
 
@@ -28,9 +28,9 @@ function FeaturesSection() {
     <Box sx={{ pb: { xs: 6, md: 10 } }}>
       <Container maxWidth="lg">
         <SectionHeading
-          eyebrow="Core features"
-          title="Reusable components that feel like a real project"
-          description="Instead of writing the whole UI in App.tsx, the page is broken into smaller pieces that can be reused in a bigger product later."
+          eyebrow="Why Choose Us"
+          title="Authentic Homemade Meals, Delivered Daily"
+          description="We connect you with passionate home cooks who prepare fresh, traditional meals using family recipes and quality ingredients."
         />
 
         <Box
@@ -55,8 +55,8 @@ function FeaturesSection() {
             background: "linear-gradient(135deg, rgba(31, 60, 136, 0.04), rgba(217, 119, 6, 0.05))",
           }}
         >
-          A clean project structure makes it easier for your supervisor to review the work,
-          and easier for you to extend it with pages, API calls, or dashboard widgets later.
+          Every meal tells a story. From a grandmother's secret recipe to a young mother's special curry,
+          Ghar Ka Khana brings the warmth and authenticity of home-cooked food to your family.
         </Paper>
       </Container>
     </Box>

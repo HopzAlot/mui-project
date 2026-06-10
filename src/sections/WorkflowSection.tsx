@@ -1,7 +1,7 @@
 import { Box, Container, Step, StepLabel, Stepper, Typography } from "@mui/material"
 import SectionHeading from "../components/SectionHeading"
 
-const steps = ["Set a shared theme", "Split the page into sections", "Reuse cards and headings"]
+const steps = ["Browse & Select Your Meal", "Place Your Order", "Enjoy Fresh Homemade Food"]
 
 function WorkflowSection() {
   return (
@@ -9,9 +9,9 @@ function WorkflowSection() {
       <Container maxWidth="lg">
         <Box sx={{ display: "grid", gap: 3 }}>
           <SectionHeading
-            eyebrow="How it is built"
-            title="A simple flow that mirrors a professional React codebase"
-            description="The point of the exercise is not just to make the page look good. It is to show structure, reusability, and responsiveness together."
+            eyebrow="How It Works"
+            title="Ordering Fresh Homemade Meals Made Simple"
+            description="Three easy steps to get authentic, home-cooked meals delivered to your doorstep every time."
           />
 
           <Stepper alternativeLabel activeStep={1} sx={{ display: { xs: "none", md: "flex" } }}>

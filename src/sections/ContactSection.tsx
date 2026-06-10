@@ -13,13 +13,13 @@ function ContactSection() {
           }}
         >
           <Box sx={{ display: "grid", gap: 2, justifyItems: "start" }}>
-            <Typography variant="h4">Ready to submit a polished internship task?</Typography>
+            <Typography variant="h4">Ready to Experience Authentic Home Cooking?</Typography>
             <Typography sx={{ maxWidth: 760, color: "rgba(255,255,255,0.8)" }}>
-              This structure is easy to explain in a review: theme setup in one file, reusable UI
-              components in one folder, and page sections kept separate from the app entry point.
+              Join thousands of satisfied customers enjoying delicious, fresh, home-cooked meals.
+              Order today and taste the difference that comes from food made with love.
             </Typography>
             <Button variant="contained" color="secondary" size="large">
-              Keep extending it
+              Download Our App
             </Button>
           </Box>
         </Paper>

@@ -27,14 +27,14 @@ function AppShell() {
                 fontWeight: 700,
               }}
             >
-              M
+              🍲
             </Box>
             <Box>
               <Typography variant="subtitle1" sx={{ fontWeight: 700, lineHeight: 1.1 }}>
-                MUI Starter
+                Ghar Ka Khana
               </Typography>
               <Typography variant="caption" color="text.secondary">
-                Responsive React structure
+                Ap milay ghar ka ziaqa har jagah
               </Typography>
             </Box>
           </Box>
