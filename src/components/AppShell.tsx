@@ -1,6 +1,9 @@
-import { AppBar, Box, Button, Container, Toolbar, Typography } from "@mui/material"
+import { AppBar, Box, Button, Container, IconButton, Toolbar, Typography } from "@mui/material"
+import { Brightness4, Brightness7Rounded } from "@mui/icons-material"
+import { useTheme } from "../ThemeContext"
 
 function AppShell() {
+  const { mode, toggleTheme } = useTheme()
   return (
     <AppBar
       position="sticky"
@@ -8,8 +11,8 @@ function AppShell() {
       color="transparent"
       sx={{
         backdropFilter: "blur(14px)",
-        backgroundColor: "rgba(245, 247, 251, 0.8)",
-        borderBottom: "1px solid rgba(19, 33, 60, 0.08)",
+        backgroundColor: mode === "dark" ? "#000000" : "#ffffffcc",
+        borderBottom: mode === "dark" ? "1px solid rgba(255, 255, 255, 0.1)" : "1px solid rgba(19, 33, 60, 0.08)",
       }}
     >
       <Container maxWidth="lg">
@@ -38,16 +41,50 @@ function AppShell() {
               </Typography>
             </Box>
           </Box>
-          <Box sx={{ display: { xs: "none", sm: "flex" }, gap: 1 }}>
-            <Button color="inherit" size="small">
+          <Box sx={{ display: { xs: "none", sm: "flex" }, gap: 1, alignItems: "center" }}>
+            <Button
+              color="inherit"
+              size="small"
+              sx={{
+                "&:hover": {
+                  backgroundColor: "#254fbb",
+                  borderRadius: 1,
+                },
+              }}
+            >
               Features
             </Button>
-            <Button color="inherit" size="small">
+            <Button
+              color="inherit"
+              size="small"
+              sx={{
+                "&:hover": {
+                  backgroundColor: "#254fbb",
+                  borderRadius: 1,
+                },
+              }}
+            >
               Workflow
             </Button>
-            <Button variant="contained" size="small">
+            <Button
+              variant="contained"
+              size="small"
+              sx={{
+                "&:hover": {
+                  backgroundColor: "#254fbb",
+                },
+              }}
+            >
               Contact
             </Button>
+            <IconButton
+              onClick={toggleTheme}
+              color="inherit"
+              sx={{ ml: 1 }}
+              title={mode === "light" ? "Switch to dark mode" : "Switch to light mode"}
+            >
+              {mode === "light" ? <Brightness4 /> : <Brightness7Rounded />}
+            </IconButton>
           </Box>
         </Toolbar>
       </Container>

@@ -1,27 +1,28 @@
 import { createTheme } from "@mui/material/styles"
 
-const theme = createTheme({
-  palette: {
-    mode: "light",
-    primary: {
-      main: "#1f3c88",
-      dark: "#152c66",
-      light: "#5c7bd9",
+export function getTheme(mode: "light" | "dark") {
+  return createTheme({
+    palette: {
+      mode,
+      primary: {
+        main: "#1f3c88",
+        dark: "#152c66",
+        light: "#5c7bd9",
+      },
+      secondary: {
+        main: "#d97706",
+        dark: "#b45309",
+        light: "#f59e0b",
+      },
+      background: {
+        default: mode === "light" ? "#c3c3c3" : "#0f1419",
+        paper: mode === "light" ? "#c3c3c3" : "#1a1f29",
+      },
+      text: {
+        primary: mode === "light" ? "#13213c" : "#f5f7fb",
+        secondary: mode === "light" ? "#5b657a" : "#b8bcc7",
+      },
     },
-    secondary: {
-      main: "#d97706",
-      dark: "#b45309",
-      light: "#f59e0b",
-    },
-    background: {
-      default: "#f5f7fb",
-      paper: "#ffffff",
-    },
-    text: {
-      primary: "#13213c",
-      secondary: "#5b657a",
-    },
-  },
   shape: {
     borderRadius: 18,
   },
@@ -69,5 +70,7 @@ const theme = createTheme({
     },
   },
 })
+}
 
-export default theme
+const lightTheme = getTheme("light")
+export default lightTheme
