@@ -11,16 +11,16 @@ function StatCard({ value, label }: StatCardProps) {
       variant="outlined"
       sx={{
         p: 2.5,
-        borderColor: "rgba(255,255,255,0.18)",
-        background: "rgba(255,255,255,0.08)",
+        borderColor: "primary.light",
+        background: "rgba(31, 60, 136, 0.06)",
         backdropFilter: "blur(12px)",
       }}
     >
       <div>
-        <Typography variant="h5" sx={{ color: "common.white" }}>
+        <Typography variant="h5" sx={{ color: "primary.main" }}>
           {value}
         </Typography>
-        <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.75)" }}>
+        <Typography variant="body2" sx={{ color: "text.secondary" }}>
           {label}
         </Typography>
       </div>
