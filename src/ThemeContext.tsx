@@ -31,7 +31,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   }
 
   if (!mounted) {
-    return <>{children}</>
+    return null
   }
 
   return (
