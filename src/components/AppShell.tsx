@@ -34,7 +34,7 @@ function AppShell() {
                 Ghar Ka Khana
               </Typography>
               <Typography variant="caption" color="text.secondary">
-                Ap milay ghar ka ziaqa har jagah
+                Ab milay ghar ka ziaqa har jagah.
               </Typography>
             </Box>
           </Box>
