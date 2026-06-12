@@ -126,6 +126,21 @@ function AppShell() {
               Workflow
             </Button>
 
+            <Button
+              color="inherit"
+              size="small"
+              href="#orders"
+              sx={{
+                "&:hover": {
+                  backgroundColor:
+                    "rgba(37,79,187,0.12)",
+                  borderRadius: 1,
+                },
+              }}
+            >
+              Orders
+            </Button>
+
             {/* Authentication */}
             <AuthButtons />
 
