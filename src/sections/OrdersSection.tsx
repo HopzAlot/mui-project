@@ -1,6 +1,7 @@
 import { useState } from "react"
 
 import {
+  Alert,
   Box,
   Button,
   CircularProgress,
@@ -19,22 +20,37 @@ import { useAuth } from "../../context/AuthContext"
 import { useOrders } from "../hooks/useOrders"
 import type { Order, OrderInput } from "../types/order"
 
-function OrdersSection() {
-  const { user, loading: authLoading } = useAuth()
-  const { orders, loading, createOrder, updateOrder, deleteOrder } = useOrders()
+type Props = {
+  orderDialogOpen: boolean
+  onOrderDialogOpen: () => void
+  onOrderDialogClose: () => void
+}
 
-  const [formOpen, setFormOpen] = useState(false)
+function OrdersSection({
+  orderDialogOpen,
+  onOrderDialogOpen,
+  onOrderDialogClose,
+}: Props) {
+  const { user, loading: authLoading } = useAuth()
+  const { orders, loading, error, createOrder, updateOrder, deleteOrder } =
+    useOrders()
+
   const [editingOrder, setEditingOrder] = useState<Order | null>(null)
   const [deletingOrder, setDeletingOrder] = useState<Order | null>(null)
 
   const handleOpenCreate = () => {
     setEditingOrder(null)
-    setFormOpen(true)
+    onOrderDialogOpen()
   }
 
   const handleOpenEdit = (order: Order) => {
     setEditingOrder(order)
-    setFormOpen(true)
+    onOrderDialogOpen()
+  }
+
+  const handleCloseForm = () => {
+    setEditingOrder(null)
+    onOrderDialogClose()
   }
 
   const handleSubmit = async (input: OrderInput) => {
@@ -75,6 +91,12 @@ function OrdersSection() {
         </Stack>
 
         <Box sx={{ mt: 3 }}>
+          {error && (
+            <Alert severity="error" sx={{ mb: 2 }}>
+              {error}
+            </Alert>
+          )}
+
           {authLoading ? (
             <Stack sx={{ alignItems: "center", py: 6 }}>
               <CircularProgress />
@@ -140,8 +162,8 @@ function OrdersSection() {
       </Container>
 
       <OrderFormDialog
-        open={formOpen}
-        onClose={() => setFormOpen(false)}
+        open={orderDialogOpen}
+        onClose={handleCloseForm}
         onSubmit={handleSubmit}
         initialOrder={editingOrder}
       />

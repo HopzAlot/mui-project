@@ -72,7 +72,9 @@ function OrderFormDialog({ open, onClose, onSubmit, initialOrder }: Props) {
       onClose()
     } catch (err) {
       console.error(err)
-      setError("Something went wrong. Please try again.")
+      setError(
+        err instanceof Error ? err.message : "Something went wrong. Please try again."
+      )
     } finally {
       setSubmitting(false)
     }

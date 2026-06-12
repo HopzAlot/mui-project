@@ -1,7 +1,11 @@
 import { Box, Button, Container, Stack, Typography } from "@mui/material"
 import StatCard from "../components/StatCard"
 
-function HeroSection() {
+type Props = {
+  onOrderNow: () => void
+}
+
+function HeroSection({ onOrderNow }: Props) {
   return (
     <Box
       sx={{
@@ -49,10 +53,10 @@ function HeroSection() {
               right to your table.
             </Typography>
             <Stack direction={{ xs: "column", sm: "row" }} spacing={2} sx={{ mt: 3 }}>
-              <Button variant="contained" size="large">
+              <Button variant="contained" size="large" onClick={onOrderNow}>
                 Order Now
               </Button>
-              <Button variant="outlined" size="large">
+              <Button variant="outlined" size="large" href="#orders">
                 Browse Meals
               </Button>
             </Stack>

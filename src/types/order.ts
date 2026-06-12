@@ -1,9 +1,13 @@
+import type { Timestamp } from "firebase/firestore"
+
 export type Order = {
   id: string
   location: string
   meal: string
   price: number
   userID: string
+  createdAt?: Timestamp | null
+  updatedAt?: Timestamp | null
 }
 
 export type OrderInput = {

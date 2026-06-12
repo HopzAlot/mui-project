@@ -23,9 +23,10 @@ import { getAuthErrorMessage } from "../../utils/authErrors"
 type Props = {
   open: boolean
   onClose: () => void
+  onAuthenticated?: () => void
 }
 
-function AuthDialog({ open, onClose }: Props) {
+function AuthDialog({ open, onClose, onAuthenticated }: Props) {
   const [isSignup, setIsSignup] = useState(false)
 
   const [email, setEmail] = useState("")
@@ -71,6 +72,7 @@ function AuthDialog({ open, onClose }: Props) {
       }
 
       resetState()
+      onAuthenticated?.()
       onClose()
     } catch (err) {
       console.error(err)
@@ -87,6 +89,7 @@ function AuthDialog({ open, onClose }: Props) {
     try {
       await signInWithPopup(auth, googleProvider)
       resetState()
+      onAuthenticated?.()
       onClose()
     } catch (err) {
       console.error(err)

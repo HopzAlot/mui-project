@@ -6,8 +6,8 @@ import {
   deleteDoc,
   doc,
   onSnapshot,
-  orderBy,
   query,
+  serverTimestamp,
   updateDoc,
   where,
 } from "firebase/firestore"
@@ -17,6 +17,8 @@ import { useAuth } from "../../context/AuthContext"
 import type { Order, OrderInput } from "../types/order"
 
 const ORDERS_COLLECTION = "orders"
+
+const getOrderTime = (order: Order) => order.createdAt?.toMillis() ?? 0
 
 export function useOrders() {
   const { user } = useAuth()
@@ -36,17 +38,22 @@ export function useOrders() {
 
     const ordersQuery = query(
       collection(db, ORDERS_COLLECTION),
-      where("userID", "==", user.uid),
-      orderBy("meal")
+      where("userID", "==", user.uid)
     )
 
     const unsubscribe = onSnapshot(
       ordersQuery,
       (snapshot) => {
-        const data = snapshot.docs.map((docSnap) => ({
-          id: docSnap.id,
-          ...(docSnap.data() as Omit<Order, "id">),
-        }))
+        const data = snapshot.docs
+          .map((docSnap) => ({
+            id: docSnap.id,
+            ...(docSnap.data() as Omit<Order, "id">),
+          }))
+          .sort((a, b) => {
+            const newestFirst = getOrderTime(b) - getOrderTime(a)
+
+            return newestFirst || a.meal.localeCompare(b.meal)
+          })
 
         setOrders(data)
         setLoading(false)
@@ -71,6 +78,8 @@ export function useOrders() {
         meal: input.meal,
         price: input.price,
         userID: user.uid,
+        createdAt: serverTimestamp(),
+        updatedAt: serverTimestamp(),
       })
     },
     [user]
@@ -84,6 +93,7 @@ export function useOrders() {
         location: input.location,
         meal: input.meal,
         price: input.price,
+        updatedAt: serverTimestamp(),
       })
     },
     [user]
