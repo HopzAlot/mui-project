@@ -9,6 +9,7 @@ import App from "./App"
 import { ThemeProvider, useTheme } from "./ThemeContext"
 import { getTheme } from "./theme"
 import "./index.css"
+import { AuthProvider } from "../context/AuthContext"
 
 function AppWithTheme() {
   const { mode } = useTheme()
@@ -24,8 +25,10 @@ function AppWithTheme() {
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
+    <AuthProvider>
     <ThemeProvider>
       <AppWithTheme />
     </ThemeProvider>
+    </AuthProvider>
   </StrictMode>,
 )
