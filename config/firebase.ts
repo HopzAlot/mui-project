@@ -1,9 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import dotenv from "dotenv";
-
-dotenv.config();
+require("dotenv").config();
 
 const firebaseConfig = {
   apiKey: process.env.VITE_FIREBASE_API_KEY,
